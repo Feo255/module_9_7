@@ -1,8 +1,10 @@
 def is_prime(func):
     def wraper(*args):
         result = func(*args)
-        if result <= 1:
-            res = 'Простое'
+        if result == 1:
+            res = 'Не простое и не составное'
+        if result <1:
+            res = "0"
         if result == 2:
             res = 'Составное'
         if result % 2 == 0:
@@ -10,7 +12,8 @@ def is_prime(func):
         for i in range(3, int(result ** 0.5) + 1, 2):
             if result % i == 0:
                 res ='Составное'
-        res ='Простое'
+        else:
+            res ='Простое'
         return res
     return wraper
 
